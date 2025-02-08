@@ -22,6 +22,11 @@ app.use(express.json())
 app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 
+//initialize routes
+app.get('/', (req, res) => {
+    res.send('Welcome to Fish Spot API')
+})
+
 app.use('/',userRouter)
 app.use('/',cloudinaryRouter)
 app.use('/',postRouter)
