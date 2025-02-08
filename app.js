@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import swaggerDocs from './server/swagger.js';
+import swaggerDocs from './swagger.js';
 
 import { userRouter } from './routes/user.js'
 import { cloudinaryRouter } from './cloudinary/cloudinary.js';
@@ -23,7 +23,7 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 
 //initialize routes
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Welcome to Fish Spot API')
 })
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { query } from "../../helpers/db.js";
+import { query } from "../helpers/db.js";
 
 const postRouter = express.Router();
 

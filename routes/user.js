@@ -1,5 +1,5 @@
 import express from "express";
-import { query } from "../../helpers/db.js";
+import { query } from "../helpers/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import passport from "passport";
