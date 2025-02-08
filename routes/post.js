@@ -1,5 +1,5 @@
 import express from "express";
-import { query } from "../helpers/db.js";
+import { query } from "../../helpers/db.js";
 
 const postRouter = express.Router();
 
@@ -32,7 +32,7 @@ const postRouter = express.Router();
  *   post:
  *     summary: Create a new post
  *     tags:
- *       - Post 
+ *       - Post
  *     requestBody:
  *       required: true
  *       content:
@@ -103,7 +103,7 @@ postRouter.post("/posts/new", async (req, res) => {
  *   get:
  *     summary: Get all posts
  *     tags:
- *       - Post 
+ *       - Post
  *     responses:
  *       200:
  *         description: A list of posts with user details

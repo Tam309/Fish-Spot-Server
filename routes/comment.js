@@ -1,5 +1,5 @@
 import express from "express";
-import { query } from "../helpers/db.js";
+import { query } from "../../helpers/db.js";
 
 const commentRouter = express.Router();
 
@@ -127,7 +127,7 @@ commentRouter.post("/posts/:post_id/comments", async (req, res) => {
       comment_id: rows[0].comment_id,
       comment_content: rows[0].comment_content,
       avatar: rows[0].avatar,
-      saved: rows[0].saved
+      saved: rows[0].saved,
     });
   } catch (error) {
     console.error(error);
@@ -191,7 +191,7 @@ commentRouter.put("/posts/:post_id/comments/:comment_id", async (req, res) => {
  * /posts/{post_id}/comments/{comment_id}:
  *   delete:
  *     summary: Delete a comment by ID
- *     tags:  
+ *     tags:
  *        - Comment
  *     parameters:
  *       - in: path

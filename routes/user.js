@@ -1,10 +1,12 @@
 import express from "express";
-import { query } from "../helpers/db.js";
+import { query } from "../../helpers/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import passport from "passport";
-import { Strategy as JwtStrategy, ExtractJwt as extractJwt } from "passport-jwt";
-
+import {
+  Strategy as JwtStrategy,
+  ExtractJwt as extractJwt,
+} from "passport-jwt";
 
 const userRouter = express.Router();
 
@@ -198,7 +200,6 @@ userRouter.post("/login", async (req, res) => {
  *                 message:
  *                   type: string
  */
-
 
 // Change password
 userRouter.put("/users/password", async (req, res) => {

@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import swaggerDocs from './swagger.js';
+import swaggerDocs from './server/swagger.js';
 
 import { userRouter } from './routes/user.js'
 import { cloudinaryRouter } from './cloudinary/cloudinary.js';
