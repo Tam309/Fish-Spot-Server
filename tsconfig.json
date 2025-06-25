@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ES6", // Target ECMAScript 6
+      "module": "CommonJS", // Use CommonJS module system
+      "esModuleInterop": true, // Enable interoperability between CommonJS and ES Modules
+      "forceConsistentCasingInFileNames": true, // Enforce consistent casing in imports
+      "strict": true, // Enable all strict type-checking options
+      "skipLibCheck": true, // Skip type checking of declaration files
+      "outDir": "./dist", // Output directory for compiled files
+      "sourceMap": true, // Generate source maps
+      "inlineSources": true, // Include source code in source maps
+      "resolveJsonModule": true, // Allow importing JSON files
+      "typeRoots": ["./node_modules/@types"], // Specify type declaration files
+      "types": ["node", "express"] // Include specific type definitions
+    },
+    "include": ["src/**/*.ts"], // Include all TypeScript files in the project
+    "exclude": ["node_modules", "dist"] // Exclude unnecessary files
+  }
