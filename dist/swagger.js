@@ -16,16 +16,37 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:3001", // Replace with your server URL
+                url: "http://localhost:3001",
             },
         ],
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT",
+                },
+            },
+        },
+        security: [
+            {
+                bearerAuth: [],
+            },
+        ],
+        tags: [
+            { name: "User", description: "User-related routes" },
+            { name: "Post", description: "Post-related routes" },
+            { name: "Comment", description: "Comment-related routes" },
+            { name: "Cloudinary", description: "Cloudinary-related routes" },
+        ],
     },
-    apis: ["./src/routes/*.ts"], // Adjust the path to your route files
+    apis: ["./src/routes/*.ts"],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);
 const setupSwaggerDocs = (app) => {
     app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerSpec));
     console.log("Swagger docs available at http://localhost:3001/api-docs");
+    console.log(JSON.stringify(swaggerSpec, null, 2));
 };
 exports.setupSwaggerDocs = setupSwaggerDocs;
 //# sourceMappingURL=swagger.js.map
