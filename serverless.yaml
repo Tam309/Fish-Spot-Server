@@ -9,14 +9,13 @@ provider:
   architecture: x86_64
   stage: prod
   environment:
-    NODE_OPTIONS: "--enable-source-maps"
-    CLIENT_URL: ${ssm:/CLIENT_URL~true}
-    CLOUDINARY_APIKEY: ${ssm:/CLOUDINARY_APIKEY~true}
+    CLIENT_URL:           ${ssm:/CLIENT_URL~true}
+    CLOUDINARY_APIKEY:    ${ssm:/CLOUDINARY_APIKEY~true}
     CLOUDINARY_APISECRET: ${ssm:/CLOUDINARY_APISECRET~true}
-    CLOUDINARY_NAME: ${ssm:/CLOUDINARY_NAME~true}
-    CLOUDINARY_URL: ${ssm:/CLOUDINARY_URL~true}
-    MONGO_URI: ${ssm:/MONGO_URI~true}
-    SECRETKEY: ${ssm:/SECRETKEY~true}
+    CLOUDINARY_NAME:      ${ssm:/CLOUDINARY_NAME~true}
+    CLOUDINARY_URL:       ${ssm:/CLOUDINARY_URL~true}
+    MONGO_URI:            ${ssm:/MONGO_URI~true}
+    SECRETKEY:            ${ssm:/SECRETKEY~true}
   iam:
     role:
       statements:
