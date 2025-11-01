@@ -5,6 +5,7 @@ provider:
   name: aws
   runtime: nodejs20.x
   region: eu-north-1 
+  profile: Fising-spot-server
   architecture: x86_64
   stage: prod
   environment:
