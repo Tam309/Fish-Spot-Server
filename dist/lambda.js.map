@@ -1,0 +1,1 @@
+{"version":3,"file":"lambda.js","sourceRoot":"","sources":["../src/lambda.ts"],"names":[],"mappings":";;;;;;AAAA,sEAAyC;AACzC,gDAAwB;AAEX,QAAA,OAAO,GAAG,IAAA,yBAAU,EAAC,aAAG,CAAC,CAAC","sourcesContent":["import serverless from \"serverless-http\";\nimport app from \"./app\";\n\nexport const handler = serverless(app);\n"]}
