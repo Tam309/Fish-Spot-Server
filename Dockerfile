@@ -1,17 +1,20 @@
-### DEVELOPMENT IMAGE ###
-FROM node:18-alpine AS development
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3001
-CMD ["npm", "run", "dev"]
+# syntax=docker/dockerfile:1.6
 
-### PRODUCTION IMAGE ###
-FROM node:18-alpine AS production
-WORKDIR /usr/src/app
+### Stage 1 - Build
+FROM node:20-alpine AS build
+WORKDIR /app
 COPY package*.json ./
-RUN npm install --production
-COPY . .
-EXPOSE 3001
-CMD ["npm", "run", "dev"]
+RUN npm ci
+COPY tsconfig.json ./
+COPY src ./src
+RUN npm run build    # builds to dist/
+
+### Stage 2 - Run (Lambda)
+FROM public.ecr.aws/lambda/nodejs:20
+WORKDIR /var/task
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY --from=build /app/dist ./dist
+
+# The handler points to dist/lambda.js and export 'handler'
+CMD ["dist/lambda.handler"]
