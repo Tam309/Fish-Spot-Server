@@ -5,7 +5,7 @@ import userRouter from './routes/userRoute';
 import cloudinaryRoute from './routes/cloudinaryRoute';
 import postRouter from './routes/postRoute';
 import commentRouter from './routes/commentRoute';
-import { setupSwaggerDocs } from './swagger';
+// import { setupSwaggerDocs } from './swagger';
 
 dotenv.config();
 
@@ -24,6 +24,5 @@ app.use('/cloudinary', cloudinaryRoute);
 app.use('/posts', postRouter);
 app.use('/comments', commentRouter);
 
-setupSwaggerDocs(app);
 
 export default app;
