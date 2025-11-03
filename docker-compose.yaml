@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: fishing-spot-server
+    working_dir: /usr/src/app
+    ports:
+      - "3001:3001"            # change if your app uses a different port
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      # helps file watching inside containers on macOS/Windows; safe to keep
+      - CHOKIDAR_USEPOLLING=1
+    volumes:
+      - .:/usr/src/app         # sync your code for live reload
+      - /usr/src/app/node_modules  # keep container's node_modules
+      - /usr/src/app/dist          # avoid host dist overriding container build output
+    command: npm run dev
