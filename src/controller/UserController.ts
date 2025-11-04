@@ -27,9 +27,11 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     
         res.status(201).json({ message: "User created successfully." });
     } catch (error) {
+        console.error("Error creating user:", error);
+        console.log("Request body:", error);
         next(error);
     }
-}
+};
 
 // Login
 export const login = async (req: Request, res: Response, next: NextFunction) => {
